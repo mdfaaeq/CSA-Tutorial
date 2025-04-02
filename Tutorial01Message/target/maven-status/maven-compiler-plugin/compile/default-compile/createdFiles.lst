@@ -1,0 +1,5 @@
+com\mycompanny\tutorial01message\Tutorial01Message.class
+com\mycompanny\tutorial01message\Receiver.class
+com\mycompanny\tutorial01message\Message.class
+com\mycompanny\tutorial01message\MessagePassingExample.class
+com\mycompanny\tutorial01message\Sender.class
