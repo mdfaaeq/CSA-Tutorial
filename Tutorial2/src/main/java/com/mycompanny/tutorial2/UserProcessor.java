@@ -28,8 +28,7 @@ public class UserProcessor implements Runnable {
     public void run() {
         if (validator.isValidAge(age)) {
             synchronized (lock) {
-                dataStore.storeUser(name, age);
-                System.out.println("User " + name + " (age: " + age + ") stored successfully.");
+                dataStore.addUser(new User(name, age));
             }
         } else {
             System.out.println("Invalid age for user: " + name);

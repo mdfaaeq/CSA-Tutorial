@@ -20,12 +20,6 @@ public class UserDataStore {
         userList = new ArrayList<>();
     }
 
-    // Method to store user data (for example purposes)
-    public void storeUser(String name, int age) {
-        User newUser = new User(name, age);
-        userList.add(newUser);
-    }
-
     // Method to add a User object to the list
     public void addUser(User user) {
         userList.add(user);
