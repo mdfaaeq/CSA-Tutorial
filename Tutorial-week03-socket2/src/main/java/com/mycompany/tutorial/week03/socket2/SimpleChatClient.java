@@ -11,9 +11,25 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.util.Scanner;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 /* **Define a public class named SimpleChatClient. This class will contain all the logic for our chat client program.** */
 public class SimpleChatClient{
+    private static final Logger logger = Logger.getLogger(SimpleChatServer.class.getName());
+    
+    static {
+        try {
+            FileHandler fileHandler = new FileHandler("logs.txt", true);
+            fileHandler.setFormatter(new SimpleFormatter());
+            logger.addHandler(fileHandler);
+            logger.setUseParentHandlers(false);
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "Failed to set up file handler for logger", e);
+        }
+    }
 
     /* **Define the main method. This is the entry point for any Java application.** */
     public static void main(String[] args) {
@@ -27,6 +43,7 @@ public class SimpleChatClient{
             Socket socket = new Socket("localhost", 12345);
 
             /* **Print a message to the console indicating that the client has connected to the server.** */
+            logger.info("Connected to server at localhost:12345");
             System.out.println("Connected to server at localhost:12345");
             
             /* **Get the input stream of the socket. This stream is used to receive data from the server.** */
@@ -64,7 +81,7 @@ public class SimpleChatClient{
                 String response = new String(buffer, 0, bytesRead);
 
                 /* **Print the server's response to the console.** */
-                System.out.println("Server : " + response);
+                logger.log(Level.INFO, "Server : {0}", response);
             
             }
         /* **Catch any IOException that may occur and print the stack trace. 
