@@ -1,2 +1,2 @@
 # CSA-Tutorial
- Client Server Architecture Tutorials
+This repository contains comprehensive tutorials on Client-Server Architecture, covering core concepts such as client-server communication, endpoints, HTTP methods (GET, POST, PUT, DELETE), response handling, and logging. It serves as a practical guide for understanding how RESTful services work, with hands-on examples and clear explanations. Future updates will include error handling, authentication, and advanced topics like WebSockets.
